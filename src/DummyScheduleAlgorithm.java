@@ -2,12 +2,14 @@ import java.util.ArrayList;
 
 public class DummyScheduleAlgorithm implements ScheduleAlgorithm {
 	@Override
-	public Schedule schedule(
+	public ClassSchedule schedule(
 			ArrayList<Student> students,
 			ArrayList<Faculty> faculty,
 			ArrayList<Course> courses,
-			ScheduleParameters parameters) {
+			ScheduleParameters parameters,
+			IdGenerator idGenerator) {
 		// TODO Write scheduling algorithm here
-		return new Schedule(null, null, null);
+
+		return null;
 	}
 }

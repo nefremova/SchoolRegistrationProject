@@ -1,9 +1,20 @@
+import java.util.Random;
 
-public class OrderedIdGenerator implements PeopleIdGenerator {
+public class OrderedIdGenerator implements IdGenerator {
 	private int currentId;
 	
+	public OrderedIdGenerator(int min, int max) {
+		Random rand = new Random();
+
+		this.currentId = rand.nextInt(max) + min;
+	}
+
+	public OrderedIdGenerator(int max) {
+		this(0, max);
+	}
+
 	public OrderedIdGenerator() {
-		this.currentId = (int)(Math.random() * 1000) + 1000;
+		this(0, 1000);
 	}
 	
 	@Override
