@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -56,9 +57,10 @@ public class Faculty extends Person {
     @Override
     public String toString() {
         StringBuilder facultyString = new StringBuilder();
+        SimpleDateFormat mdyFormat = new SimpleDateFormat("MM/dd/yyyy");
 
         facultyString.append(super.toString());
-        facultyString.append("\nDate Hired: " + dateHired);
+        facultyString.append("\nDate Hired: " + mdyFormat.format(dateHired));
         facultyString.append("\nTenured?: " + isTenured);
 
         return facultyString.toString();

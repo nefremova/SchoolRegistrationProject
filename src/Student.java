@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -71,11 +72,13 @@ public class Student extends Person {
 
     @Override
     public String toString() {
+        SimpleDateFormat mdyFormat = new SimpleDateFormat("MM/dd/yyyy");
+
         StringBuilder studentString = new StringBuilder();
         studentString.append(super.toString());
-        studentString.append("\nDOB: " + dob);
+        studentString.append("\nDOB: " + mdyFormat.format(dob));
         studentString.append("\nGPA: " + gpa);
-        studentString.append("\nDate Enrolled: " + dateEnrolled);
+        studentString.append("\nDate Enrolled: " + mdyFormat.format(dateEnrolled));
 
         return studentString.toString();
     }

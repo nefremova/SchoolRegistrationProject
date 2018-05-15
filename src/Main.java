@@ -44,5 +44,8 @@ public class Main {
 		catch(InputMismatchException ex) {
 			System.out.println("File " + ex.getMessage() +  " contains invalid format.");
 		}
+		catch(Exception ex) {
+			System.out.println("Exception occured: " + ex);
+		}
 	}
 }
