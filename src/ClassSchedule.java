@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class ClassSchedule {
@@ -5,6 +6,14 @@ public class ClassSchedule {
 	private ArrayList<CourseSession> courseSessions;
 
 	public ClassSchedule(ArrayList<CourseSession> courseSessions) {
+		this.courseSessions = courseSessions;
+	}
+
+	public ArrayList<CourseSession> getCourseSessions() {
+		return courseSessions;
+	}
+
+	public void setCourseSessions(ArrayList<CourseSession> courseSessions) {
 		this.courseSessions = courseSessions;
 	}
 
@@ -46,5 +55,4 @@ public class ClassSchedule {
 
 		return courseSessions;
 	}
-
 }

@@ -75,4 +75,20 @@ public class CourseSession extends Course {
 
         return sessionId == courseSession.sessionId;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder cSession = new StringBuilder();
+        cSession.append(courseBase.toString());
+        cSession.append("\nSession id: " + sessionId);
+        cSession.append("\nInstructor: " + instructor.getfName() + " "
+                + instructor.getlName() + " " + instructor.getIdNum());
+        cSession.append("\nStudents: " + students.size());
+
+        for (Student s : students) {
+            cSession.append("\n" + s.getfName() + " " + s.getlName() + " " + s.getIdNum());
+        }
+
+        return cSession.toString();
+    }
 }

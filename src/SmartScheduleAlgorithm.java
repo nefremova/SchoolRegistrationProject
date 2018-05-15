@@ -16,7 +16,8 @@ public class SmartScheduleAlgorithm implements ScheduleAlgorithm {
 				Faculty instructor = new Faculty();
 
 				for (Faculty f : faculty) {
-					if (f.getCoursesTaught().contains(courseBase) && f.numCourses < parameters.sessionsPerInstructor) {
+					if (f.getCoursesTaught().contains(courseBase.getCourseId())
+                            && f.numCourses < parameters.sessionsPerInstructor) {
 						instructor = f;
 						break;
 					}
@@ -25,11 +26,11 @@ public class SmartScheduleAlgorithm implements ScheduleAlgorithm {
 				ArrayList<Student> studentsInSession = new ArrayList<>();
 
 				for (Student s : students) {
-					if (s.getCoursesWanted().contains(courseBase) // Student wants to take course
+					if (s.getCoursesWanted().contains(courseBase.getCourseId()) // Student wants to take course
 							&& s.numCourses < parameters.getSessionsPerStudent() // Student is able to take course
 							&& studentsInSession.size() < courseBase.getMaxStudents())  { // Session is not full
 						studentsInSession.add(s);
-						s.getCoursesWanted().remove(courseBase);
+						s.getCoursesWanted().remove(courseBase.getCourseId());
 					}
 				}
 
@@ -39,7 +40,7 @@ public class SmartScheduleAlgorithm implements ScheduleAlgorithm {
 			}
 		}
 
-		return null;
+		return new ClassSchedule(courseSessions);
 	}
 
 	private int getStudentRank(Student s) {
