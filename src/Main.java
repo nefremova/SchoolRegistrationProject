@@ -1,6 +1,4 @@
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -24,9 +22,20 @@ public class Main {
 			ScheduleAlgorithm scheduler = ScheduleFactory.createScheduler(sParameters);
 			ClassSchedule result = scheduler.schedule(students, faculty, courses, sParameters, sessionIdGenerator);
 
-			PrintWriter output = new PrintWriter(new File("ScheduledCourses.txt"));
+			CoursePrinter cPrinter = new CoursePrinter("ScheduledStudents.txt", courses, result);
+			cPrinter.printScheduledCourses();
 
-			printScheduledCourses(result, output);
+			cPrinter.setOutput("UnscheduledStudents.txt");
+			cPrinter.printUnscheduledCourses();
+
+			FacultyPrinter fPrinter = new FacultyPrinter("FacultySchedule.txt", faculty, result);
+			fPrinter.printFaculty();
+
+			StudentPrinter sPrinter = new StudentPrinter("ScheduledStudents.txt", students, result);
+			sPrinter.printScheduledStudents();
+
+			sPrinter.setOutput("UnscheduledStudents.txt");
+			sPrinter.printUnscheduledStudents();
 		}
 
 		catch(FileNotFoundException ex) {
@@ -36,17 +45,4 @@ public class Main {
 			System.out.println("File " + ex.getMessage() +  " contains invalid format.");
 		}
 	}
-
-	public static void printScheduledCourses(ClassSchedule schedule, PrintWriter output) {
-		for (CourseSession session : schedule.getCourseSessions()) {
-			if (session.isScheduled()) {
-				output.println(session.toString());
-				output.println();
-				output.println();
-			}
-		}
-
-		output.flush();
-	}
-
 }

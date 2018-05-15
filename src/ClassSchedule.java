@@ -21,7 +21,7 @@ public class ClassSchedule {
 		ArrayList<CourseSession> studentSchedule = new ArrayList<>();
 
 		for (CourseSession session : courseSessions) {
-			for (Student s : session.students) {
+			for (Student s : session.getStudents()) {
 				if (s.equals(student)) {
 					studentSchedule.add(session);
 					break;
@@ -36,7 +36,7 @@ public class ClassSchedule {
 		ArrayList<CourseSession> facultySchedule = new ArrayList<>();
 
 		for (CourseSession session : courseSessions) {
-			if (session.instructor.equals(faculty)) {
+			if (session.getInstructor().equals(faculty)) {
 				facultySchedule.add(session);
 			}
 		}
@@ -44,15 +44,24 @@ public class ClassSchedule {
 		return facultySchedule;
 	}
 
-	public ArrayList<CourseSession> getSessionsForCourse(Course course) {
-		ArrayList<CourseSession> courseSessions = new ArrayList<>();
+	public ArrayList<CourseSession> getScheduledSessionsForCourse(Course course) {
+		ArrayList<CourseSession> cSessions = new ArrayList<>();
 
 		for (CourseSession session : courseSessions) {
-			if (session.courseBase.equals(course)) {
-				courseSessions.add(session);
+			if (course.equals(session.getCourseBase()) && session.isScheduled()) {
+				cSessions.add(session);
 			}
 		}
 
-		return courseSessions;
+		return cSessions;
+	}
+
+	public boolean isUnscheduled(Course course) {
+		for (CourseSession session : courseSessions) {
+			if (session.isScheduled() && session.getCourseBase().equals(course)) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

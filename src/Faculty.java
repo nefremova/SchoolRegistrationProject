@@ -58,8 +58,8 @@ public class Faculty extends Person {
         StringBuilder facultyString = new StringBuilder();
 
         facultyString.append(super.toString());
-        facultyString.append("Date Hired: " + dateHired);
-        facultyString.append("Tenured?: " + isTenured);
+        facultyString.append("\nDate Hired: " + dateHired);
+        facultyString.append("\nTenured?: " + isTenured);
 
         return facultyString.toString();
     }
