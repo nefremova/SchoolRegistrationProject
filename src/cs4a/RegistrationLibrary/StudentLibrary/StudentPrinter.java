@@ -12,6 +12,7 @@ import java.util.ArrayList;
 /**
  * Print information about students to given output
  */
+
 public class StudentPrinter {
     private PrintWriter output;
     private ArrayList<Student> students;
@@ -23,8 +24,7 @@ public class StudentPrinter {
         this.schedule = schedule;
     }
 
-    public StudentPrinter(String pathname, ArrayList<Student> students, ClassSchedule schedule)
-            throws FileNotFoundException {
+    public StudentPrinter(String pathname, ArrayList<Student> students, ClassSchedule schedule) throws FileNotFoundException {
         this(new PrintWriter(new File(pathname)), students, schedule);
     }
 
@@ -59,6 +59,7 @@ public class StudentPrinter {
     /**
      * Print all students that are scheduled
      */
+
     public void printScheduledStudents() {
         for (Student student : students) {
             if (schedule.getStudentSchedule(student).size() > 0) {
@@ -81,6 +82,7 @@ public class StudentPrinter {
     /**
      * Print all students that are not scheduled
      */
+
     public void printUnscheduledStudents() {
         for (Student student : students) {
             if (schedule.getStudentSchedule(student).size() == 0) {
@@ -95,16 +97,18 @@ public class StudentPrinter {
 
     /**
      * Return total number of students
-     * @return
+     * @return int This is the total number of students
      */
+
     public int getNumStudents() {
         return students.size();
     }
 
     /**
      * Return total number of scheduled students
-     * @return
+     * @return int This is the total number of scheduled students
      */
+
     public int getNumScheduledStudents() {
         int count = 0;
 
@@ -119,8 +123,9 @@ public class StudentPrinter {
 
     /**
      * Return total number of unscheduled students
-     * @return
+     * @return int This is the total number of unscheduled students
      */
+
     public int getNumUnscheduledStudents() {
         int count = 0;
 

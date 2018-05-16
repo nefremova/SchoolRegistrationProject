@@ -15,6 +15,7 @@ import java.util.Date;
 /**
  * This class contains information about a student
  */
+
 public class Student extends Person {
     private Date dob;
     private double gpa;
@@ -82,6 +83,11 @@ public class Student extends Person {
         this.coursesWanted = coursesWanted;
         return this;
     }
+
+    /**
+     * Return student object as a string
+     * @return String Formatted with data fields on separate lines
+     */
 
     @Override
     public String toString() {

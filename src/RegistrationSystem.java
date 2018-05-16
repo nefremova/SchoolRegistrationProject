@@ -81,7 +81,7 @@ public class RegistrationSystem {
 
 			// Print stats of program
 			printStats(sPrinter.getNumStudents(), fPrinter.getNumFaculty(), cPrinter.getNumCourses(),
-					cPrinter.getNumSessions(), cPrinter.getNumUnscheduledCourses(), sPrinter.getNumUnscheduledStudents());
+					cPrinter.getNumScheduledSessions(), cPrinter.getNumUnscheduledCourses(), sPrinter.getNumUnscheduledStudents());
 		}
 
 		catch(FileNotFoundException ex) {

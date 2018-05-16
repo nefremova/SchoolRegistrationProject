@@ -1,4 +1,5 @@
 package cs4a.RegistrationLibrary.FacultyLibrary;
+
 import cs4a.RegistrationLibrary.ClassSchedule.ClassSchedule;
 import cs4a.RegistrationLibrary.CourseLibrary.CourseSession;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 /**
  * This class prints faculty information to a specified output
  */
+
 public class FacultyPrinter {
     private PrintWriter output;
     private ArrayList<Faculty> faculty;
@@ -56,6 +58,7 @@ public class FacultyPrinter {
     /**
      * Print all faculty
      */
+
     public void printFaculty() {
         for (Faculty f : faculty) {
             output.println(f);
@@ -74,8 +77,9 @@ public class FacultyPrinter {
 
     /**
      * Return total number of faculty members
-     * @return
+     * @return int This is the number of faculty members
      */
+
     public int getNumFaculty() {
         return faculty.size();
     }

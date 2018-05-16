@@ -8,6 +8,7 @@ import java.util.Random;
  * Generate a random starting id (adjustable min/max)
  * and increment ids in order from this position
  */
+
 public class OrderedIdGenerator implements IdGenerator {
 	private int currentId;
 	
@@ -24,7 +25,13 @@ public class OrderedIdGenerator implements IdGenerator {
 	public OrderedIdGenerator() {
 		this(0, 1000);
 	}
-	
+
+	/**
+	 * Implement nextId() method in IdGenerator interface
+	 * by incrementing the current id
+	 * @return int This returns a unique id
+	 */
+
 	@Override
 	public int nextId() {
 		this.currentId++;

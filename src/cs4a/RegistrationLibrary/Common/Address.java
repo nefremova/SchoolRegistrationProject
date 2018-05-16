@@ -3,6 +3,7 @@ package cs4a.RegistrationLibrary.Common;
 /**
  * This class holds information for an Address (Street address, city, state, and zipcode)
  */
+
 public class Address {
     String streetAddress;
     String city;
@@ -22,8 +23,9 @@ public class Address {
 
     /**
      * Return address as a string
-     * @return
+     * @return String formatted as Street Address City, State Zipcode
      */
+
     @Override
     public String toString() {
         return streetAddress + " " + city + ", " + state + " " + zipcode;

@@ -2,7 +2,6 @@ package cs4a.RegistrationLibrary.Common;
 
 /**
  * This class is a base class for students and faculty
- *
  */
 
 public class Person implements Comparable{
@@ -35,8 +34,8 @@ public class Person implements Comparable{
 
     }
 
-    /** Constructor taking in first name, last name, email, phone number, address by parts, and id
-     *
+    /**
+     * Constructor taking in first name, last name, email, phone number, address by parts, and id
      * @param fName
      * @param lName
      * @param email
@@ -47,6 +46,7 @@ public class Person implements Comparable{
      * @param zipcode
      * @param idNum
      */
+
     public Person(String fName, String lName, String email, String phoneNum,
                   String streetAddress, String city, String state, String zipcode, int idNum) {
         this(fName, lName, email, phoneNum, new Address(streetAddress, city, state, zipcode), idNum);
@@ -114,6 +114,10 @@ public class Person implements Comparable{
         return this;
     }
 
+    /**
+     * Increment the number of courses a student is taking
+     */
+
     public void addCourse() {
         numCourses++;
     }
@@ -124,9 +128,10 @@ public class Person implements Comparable{
 
     /**
      * Override the equals method to return true if id numbers match
-     * @param o
-     * @return
+     * @param o Object comparable to Person object
+     * @return boolean This returns true if the objects are equal.
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -137,8 +142,9 @@ public class Person implements Comparable{
 
     /**
      * Return Person as a string
-     * @return
+     * @return String formatted with data fields on separate lines
      */
+
     @Override
     public String toString() {
         StringBuilder personString = new StringBuilder();
@@ -151,6 +157,11 @@ public class Person implements Comparable{
         return personString.toString();
     }
 
+    /**
+     * Compare two Person objects alphabetically by full name
+     * @param o Object comparing to Person
+     * @return int This returns -1 if o > this, 0 if o == this, and 1 if this > o
+     */
 
     @Override
     public int compareTo(Object o) {

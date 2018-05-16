@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Generate a random, unique id (with options for min/max)
+ * Generate a random, unique id (adjustable min/max)
  */
+
 public class RandomIdGenerator implements IdGenerator {
 	private ArrayList<Integer> usedIds = new ArrayList<Integer>();
 	int max, min;
@@ -25,6 +26,13 @@ public class RandomIdGenerator implements IdGenerator {
 		this(0, Integer.MAX_VALUE);
 	}
 
+	/**
+	 * Implement nextId() method in IdGenerator interface
+	 * by generating a random int, comparing it to a list
+	 * of used Ids, and finally adding the unique id to the list
+	 * @return int This returns a unique id
+	 */
+
 	@Override
 	public int nextId() {
 		Random rand = new Random();
@@ -36,7 +44,6 @@ public class RandomIdGenerator implements IdGenerator {
 		}
 
 		usedIds.add(id);
-
 		return id;
 	}
 

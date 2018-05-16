@@ -78,7 +78,7 @@ public class Course {
 
     /**
      * Return course as a string
-     * @return
+     * @return String formatted with department and code on one line and description on a new line
      */
 
     @Override
@@ -87,10 +87,11 @@ public class Course {
     }
 
     /**
-     * Override the equals method to return true if courses have identical id numbers
-     * @param o
-     * @return
+     * Override the equals method to check if two courses have identical id numbers
+     * @param o Object comparable to Course
+     * @return boolean This returns true if courses have identical id numbers
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

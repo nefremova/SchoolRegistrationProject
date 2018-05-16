@@ -33,7 +33,8 @@ public class Faculty extends Person {
     }
 
     public Faculty() {
-        this("", "", "", "", new Address(), 0, new Date(), false, new ArrayList<String>());
+        this("", "", "", "",
+                new Address(), 0, new Date(), false, new ArrayList<String>());
     }
 
     public Date getDateHired() {
@@ -65,8 +66,9 @@ public class Faculty extends Person {
 
     /**
      * Return faculty member as a string
-     * @return
+     * @return String Formatted with data fields on separate lines
      */
+
     @Override
     public String toString() {
         StringBuilder facultyString = new StringBuilder();

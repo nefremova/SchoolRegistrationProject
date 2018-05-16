@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  * This class prints course information to a specified output source
  */
+
 public class CoursePrinter {
     private PrintWriter output;
     private ArrayList<Course> courses;
@@ -56,9 +57,10 @@ public class CoursePrinter {
     /**
      * Print scheduled courses
      */
+
     public void printScheduledCourses() {
         for (Course course : courses) {
-            if (!schedule.isUnscheduled(course))  {
+            if (schedule.hasScheduled(course))  {
                 output.println(course);
                 output.println();
 
@@ -77,9 +79,10 @@ public class CoursePrinter {
     /**
      * Print unscheduled courses
      */
+
     public void printUnscheduledCourses() {
         for (Course course : courses) {
-            if (schedule.isUnscheduled(course)) {
+            if (!schedule.hasScheduled(course)) {
                 output.println(course.getCourseId() + "\nMin Students: " + course.getMinStudents());
                 output.println();
                 output.println();
@@ -90,29 +93,38 @@ public class CoursePrinter {
 
     /**
      * Return total number of courses
-     * @return
+     * @return int This returns number of courses
      */
+
     public int getNumCourses() {
         return courses.size();
     }
 
     /**
      * Return total number of sessions
-     * @return
+     * @return int This returns number of sessions
      */
-    public int getNumSessions() {
-        return schedule.getCourseSessions().size();
+
+    public int getNumScheduledSessions() {
+        int count = 0;
+        for (CourseSession session : schedule.getCourseSessions()) {
+            if (session.isScheduled()) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
      * Return total number of scheduled courses
-     * @return
+     * @return int This returns number of unscheduled courses
      */
+
     public int getNumScheduledCourses() {
         int count = 0;
 
         for (Course course : courses) {
-            if (!schedule.isUnscheduled(course)) {
+            if (schedule.hasScheduled(course)) {
                 count++;
             }
         }
@@ -122,13 +134,14 @@ public class CoursePrinter {
 
     /**
      * Return total number of unscheduled courses
-     * @return
+     * @return int This returns number of scheduled courses
      */
+
     public int getNumUnscheduledCourses() {
         int count = 0;
 
         for (Course course : courses) {
-            if (schedule.isUnscheduled(course)) {
+            if (!schedule.hasScheduled(course)) {
                 count++;
             }
         }
